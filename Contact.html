@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman 2</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            gap: 20px; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tombol-kabur, .tombol-normal {
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            background-color: aliceblue;
+            
+        }
+
+        .all {
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            background-color: rgb(100, 100, 154);
+            padding: 50px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tombol-kabur, .tombol-normal:hover {
+            background-color: rgb(117, 41, 105);
+            color: aliceblue;
+            transition: .3s ease-in-out;
+        }
+
+        img {
+            background-color: aliceblue;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <img src="./image/Cub Raising Association.jpeg" width="110" alt="">
+        <h1>Besok kamu jangan pulang dulu yaaaa</h1>
+        <div class="container">
+            <button id="tombolNormal" class="tombol-normal">Iyaaaa</button>
+            <button id="tombolKabur" class="tombol-kabur">pulang</button>
+        </div>
+    </div>
+
+    <script>
+        const tombolKabur = document.getElementById("tombolKabur");
+
+        function pindahSaatDisentuh() {
+            let maxWidth = window.innerWidth - tombolKabur.clientWidth;
+            let maxHeight = window.innerHeight - tombolKabur.clientHeight;
+
+            let randomX = Math.random() * maxWidth;
+            let randomY = Math.random() * maxHeight;
+
+            tombolKabur.style.position = "absolute";
+            tombolKabur.style.left = randomX + "px";
+            tombolKabur.style.top = randomY + "px";
+        }
+
+        tombolKabur.addEventListener("mouseenter", pindahSaatDisentuh);
+
+        const tombolNormal = document.getElementById("tombolNormal");
+        tombolNormal.addEventListener("click", function() {
+            alert("Okeey, Besok aku tunggu yaaa 😊")
+        });
+    </script>
+
+</body>
+</html>
+
